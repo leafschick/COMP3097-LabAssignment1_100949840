@@ -20,7 +20,9 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(currentNumber)")
+                .font(.system(size: 72, weight: .light))
+                .foregroundStyle(.teal)
         }
         .padding()
         .onAppear {
