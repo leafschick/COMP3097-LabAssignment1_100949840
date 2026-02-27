@@ -23,6 +23,15 @@ struct ContentView: View {
             Text("\(currentNumber)")
                 .font(.system(size: 72, weight: .light))
                 .foregroundStyle(.teal)
+            
+            Text("Prime")
+                .font(.system(size: 32, weight: .light))
+                .foregroundStyle(Color.green)
+            
+            Text("Not Prime")
+                .font(.system(size: 32, weight: .light))
+                .foregroundStyle(Color.green)
+            
         }
         .padding()
         .onAppear {
