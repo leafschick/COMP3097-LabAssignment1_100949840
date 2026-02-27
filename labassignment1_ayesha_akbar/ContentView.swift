@@ -13,6 +13,14 @@ struct ContentView: View {
     func generateRandomNumber() {
         currentNumber = Int.random(in: 1...100)
     }
+    
+    func primeTapped() {
+        
+    }
+    
+    func notPrimeTapped() {
+        
+    }
 
     var body: some View {
         VStack {
@@ -25,6 +33,7 @@ struct ContentView: View {
                 .foregroundStyle(.teal)
 
             Button(action: {
+                primeTapped()
                 
             }) {
                 Text("Prime")
@@ -32,6 +41,7 @@ struct ContentView: View {
                     .foregroundStyle(Color.green)
             }
             Button(action: {
+                notPrimeTapped()
                 
             }) {
                 Text("Not Prime")
