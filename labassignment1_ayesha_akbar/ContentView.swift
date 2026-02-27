@@ -31,10 +31,13 @@ struct ContentView: View {
                     .font(.system(size: 32, weight: .light))
                     .foregroundStyle(Color.green)
             }
-
-            Text("Not Prime")
-                .font(.system(size: 32, weight: .light))
-                .foregroundStyle(Color.green)
+            Button(action: {
+                
+            }) {
+                Text("Not Prime")
+                    .font(.system(size: 32, weight: .light))
+                    .foregroundStyle(Color.green)
+            }
         }
         .padding()
         .onAppear {
