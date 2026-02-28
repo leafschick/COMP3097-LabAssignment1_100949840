@@ -49,6 +49,13 @@ struct ContentView: View {
                     .font(.system(size: 32, weight: .light))
                     .foregroundStyle(Color.green)
             }
+            
+            Image(systemName: resultIcon)
+                    .font(.system(size: 64))
+                    .foregroundStyle(resultIcon == "checkmark.circle" ? .green : .red)
+                    .opacity(resultIcon.isEmpty ? 0 : 1)
+                    .padding(.top, 20)
+
         }
         .padding()
         .onAppear {
