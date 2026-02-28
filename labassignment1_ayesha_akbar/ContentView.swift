@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var resultIcon: String = ""
     @State private var correctCount : Int = 0
     @State private var incorrectCount : Int = 0
+    @State private var attempts : Int = 0
+    @State private var showAlert : Bool = false
 
     func generateRandomNumber() {
         currentNumber = Int.random(in: 1...100)
