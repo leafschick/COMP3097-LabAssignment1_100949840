@@ -13,6 +13,7 @@ struct ContentView: View {
 
     func generateRandomNumber() {
         currentNumber = Int.random(in: 1...100)
+        resultIcon = ""
     }
     
     func primeTapped() {
