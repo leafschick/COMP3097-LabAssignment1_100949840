@@ -21,6 +21,7 @@ struct ContentView: View {
     }
     
     func primeTapped() {
+        attempts += 1
      if isPrime(currentNumber) {
             correctCount += 1
          resultIcon = "checkmark.circle"
@@ -31,6 +32,7 @@ struct ContentView: View {
     }
     
     func notPrimeTapped() {
+        attempts += 1
      if isPrime(currentNumber) {
             incorrectCount += 1
          resultIcon = "xmark.circle"
