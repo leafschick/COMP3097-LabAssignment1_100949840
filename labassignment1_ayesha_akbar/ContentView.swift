@@ -40,6 +40,9 @@ struct ContentView: View {
          resultIcon = "xmark.circle"
      }
         checkForTenAttempts()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                generateRandomNumber()
     }
     
     func notPrimeTapped() {
@@ -54,6 +57,9 @@ struct ContentView: View {
          resultIcon = "checkmark.circle"
      }
         checkForTenAttempts()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                generateRandomNumber()
     }
     
     func isPrime(_ b: Int) -> Bool {
