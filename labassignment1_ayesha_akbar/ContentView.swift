@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @State private var currentNumber: Int = 0
@@ -16,6 +17,9 @@ struct ContentView: View {
     @State private var showAlert : Bool = false
     @State private var secondsLeft: Int = 5
     @State private var answeredinThisRound: Bool = false
+    
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
 
     func generateRandomNumber() {
         currentNumber = Int.random(in: 1...100)
@@ -93,11 +97,12 @@ struct ContentView: View {
                     .foregroundStyle(Color.green)
             }
             
-            Image(systemName: resultIcon)
+            if !resultIcon.isEmpty {
+                Image(systemName: resultIcon)
                     .font(.system(size: 64))
                     .foregroundStyle(resultIcon == "checkmark.circle" ? .green : .red)
-                    .opacity(resultIcon.isEmpty ? 0 : 1)
                     .padding(.top, 20)
+            }
             
             HStack (spacing : 20) {
                 Text("Correct: \(correctCount)")
@@ -112,6 +117,11 @@ struct ContentView: View {
         .onAppear {
             generateRandomNumber()
         }
+        .onReceive(timer) { _ in
+                if secondsLeft > 0 {
+                    secondsLeft -= 1
+                }
+            }
         .alert("Stats after \(attempts) attempts", isPresented: $showAlert) {
             Button("OK") {}
         } message: {
