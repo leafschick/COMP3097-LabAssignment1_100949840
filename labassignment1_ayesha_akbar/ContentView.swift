@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var currentNumber: Int = 0
+    @State private var resultIcon: String = ""
 
     func generateRandomNumber() {
         currentNumber = Int.random(in: 1...100)
