@@ -25,6 +25,19 @@ struct ContentView: View {
     func notPrimeTapped() {
         resultIcon = "xmark.circle"
     }
+    
+    func isPrime(_ b: Int) -> Bool {
+        if b < 2 { return false }
+        if b == 2 { return true }
+        if b % 2 == 0 { return false }
+        
+        var k = 3
+        while k * k <= b {
+            if b * k == 0 { return false }
+            k += 2
+        }
+        return true
+    }
 
     var body: some View {
         VStack {
