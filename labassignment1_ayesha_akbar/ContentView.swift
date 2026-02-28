@@ -24,10 +24,14 @@ struct ContentView: View {
     func generateRandomNumber() {
         currentNumber = Int.random(in: 1...100)
         resultIcon = ""
+        secondsLeft = 5
+        answeredinThisRound = false
     }
     
     func primeTapped() {
         attempts += 1
+        answeredinThisRound = true
+        secondsLeft = 5
      if isPrime(currentNumber) {
             correctCount += 1
          resultIcon = "checkmark.circle"
@@ -40,6 +44,8 @@ struct ContentView: View {
     
     func notPrimeTapped() {
         attempts += 1
+        answeredinThisRound = true
+        secondsLeft = 5
      if isPrime(currentNumber) {
             incorrectCount += 1
          resultIcon = "xmark.circle"
@@ -63,11 +69,23 @@ struct ContentView: View {
         return true
     }
     
+    func timeExpired() {
+        if !answeredinThisRound {
+            attempts += 1
+            incorrectCount += 1
+            resultIcon = "xmark.circle"
+            checkForTenAttempts()
+        }
+
+        generateRandomNumber()
+    }
+    
     func checkForTenAttempts()  {
             if attempts % 10 == 0 {
                 showAlert = true
             }
         }
+    
     
 
     var body: some View {
@@ -120,6 +138,8 @@ struct ContentView: View {
         .onReceive(timer) { _ in
                 if secondsLeft > 0 {
                     secondsLeft -= 1
+                } else {
+                    timeExpired()
                 }
             }
         .alert("Stats after \(attempts) attempts", isPresented: $showAlert) {
