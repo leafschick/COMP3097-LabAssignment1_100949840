@@ -16,11 +16,11 @@ struct ContentView: View {
     }
     
     func primeTapped() {
-        
+        resultIcon = "checkmark.circle"
     }
     
     func notPrimeTapped() {
-        
+        resultIcon = "xmark.circle"
     }
 
     var body: some View {
