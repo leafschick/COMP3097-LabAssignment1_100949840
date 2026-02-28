@@ -29,6 +29,7 @@ struct ContentView: View {
          incorrectCount += 1
          resultIcon = "xmark.circle"
      }
+        checkForTenAttempts()
     }
     
     func notPrimeTapped() {
@@ -40,6 +41,7 @@ struct ContentView: View {
          correctCount += 1
          resultIcon = "checkmark.circle"
      }
+        checkForTenAttempts()
     }
     
     func isPrime(_ b: Int) -> Bool {
@@ -49,11 +51,18 @@ struct ContentView: View {
         
         var k = 3
         while k * k <= b {
-            if b * k == 0 { return false }
+            if b % k == 0 { return false }
             k += 2
         }
         return true
     }
+    
+    func checkForTenAttempts()  {
+            if attempts % 10 == 0 {
+                showAlert = true
+            }
+        }
+    
 
     var body: some View {
         VStack {
