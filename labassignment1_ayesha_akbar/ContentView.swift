@@ -110,6 +110,12 @@ struct ContentView: View {
         .onAppear {
             generateRandomNumber()
         }
+        .alert("Stats after \(attempts) attempts", isPresented: $showAlert) {
+            Button("OK") {}
+        } message: {
+            Text("Correct: \(correctCount)\nIncorrect: \(incorrectCount)")
+
+        }
     } // closes body
 } // closes struct
 
