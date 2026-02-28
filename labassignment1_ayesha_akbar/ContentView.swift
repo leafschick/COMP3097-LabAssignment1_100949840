@@ -83,6 +83,14 @@ struct ContentView: View {
                     .foregroundStyle(resultIcon == "checkmark.circle" ? .green : .red)
                     .opacity(resultIcon.isEmpty ? 0 : 1)
                     .padding(.top, 20)
+            
+            HStack (spacing : 20) {
+                Text("Correct: \(correctCount)")
+                Text("Incorrect \(incorrectCount)")
+            }
+            .font(.footnote)
+            .foregroundStyle(Color.gray)
+            .padding(.top, 10)
 
         }
         .padding()
